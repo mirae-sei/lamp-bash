@@ -16,7 +16,7 @@ if [ -e "$ENV" ];
 then
         echo "exist"
 else
-        cat > $ENV <<EOF
+        cat > $ENV <<'EOF'
 MYSQL_ROOT_PASSWORD=root_pass
 MYSQL_DATABASE=dlampdb
 MYSQL_USER=db_admin
@@ -44,8 +44,6 @@ services :
             DB_USER: ${MYSQL_USER}
             DB_PASS: ${MYSQL_PASSWORD}
             DB_NAME: ${MYSQL_DATABASE}
-        env_file:
-            - .env
     mysql-server:
         networks:
             - lamp-net
